@@ -2,18 +2,19 @@ public class Aluno {
     private String nome;
     private String respostas;
     private String gabarito;
-    private int nota = 0;
+    private int nota;
 
     public Aluno(String nome, String respostas, String gabarito) {
         this.nome = nome;
         this.respostas = respostas;
         this.gabarito = gabarito;
+        this.nota = 0;
     }
 
     public void calcularNota() {
         if (respostas.equals("VVVVVVVVVV") || respostas.equals("vvvvvvvv")
                 || respostas.equals("FFFFFFFFFF") || respostas.equals("ffffffff")) {
-            nota = 0;
+            this.setNota(0);
         } else {
             for (int i = 0; i < respostas.length(); i++) {
                 if (respostas.charAt(i) == gabarito.charAt(i)) {
@@ -45,6 +46,10 @@ public class Aluno {
 
     public int getNota() {
         return nota;
+    }
+
+    public void setNota(int nota){
+        this.nota = nota;
     }
 
     public void incrementarNota(){
