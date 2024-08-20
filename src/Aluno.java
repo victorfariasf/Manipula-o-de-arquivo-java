@@ -1,31 +1,30 @@
 public class Aluno {
     private String nome;
-    private String sequenciaAcertos;
-    private String gabaritoOficial;
+    private String respostas;
+    private String gabarito;
     private int nota = 0;
 
-    public Aluno(String nome, String sequenciaAcertos, String gabaritoOficial) {
+    public Aluno(String nome, String respostas, String gabarito) {
         this.nome = nome;
-        this.sequenciaAcertos = sequenciaAcertos;
-        this.gabaritoOficial = gabaritoOficial;
+        this.respostas = respostas;
+        this.gabarito = gabarito;
     }
 
     public void calcularNota() {
-        if (sequenciaAcertos.equals("VVVVVVVVVV") || sequenciaAcertos.equals("vvvvvvvv")
-                || sequenciaAcertos.equals("FFFFFFFFFF") || sequenciaAcertos.equals("ffffffff")) {
+        if (respostas.equals("VVVVVVVVVV") || respostas.equals("vvvvvvvv")
+                || respostas.equals("FFFFFFFFFF") || respostas.equals("ffffffff")) {
             nota = 0;
         } else {
-            for (int i = 0; i < sequenciaAcertos.length(); i++) {
-                if (sequenciaAcertos.charAt(i) == gabaritoOficial.charAt(i)) {
-                    nota++;
+            for (int i = 0; i < respostas.length(); i++) {
+                if (respostas.charAt(i) == gabarito.charAt(i)) {
+                    this.incrementarNota();
                 }
             }
         }
-
     }
 
     public String toString() {
-        return nome + "\t" + sequenciaAcertos + "\t" + nota;
+        return this.getNome() + "\t" + this.getRespostas() + "\t" + this.getNota();
     }
 
     public String getNome() {
@@ -36,20 +35,20 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getSequenciaAcertos() {
-        return sequenciaAcertos;
+    public String getRespostas() {
+        return respostas;
     }
 
-    public void setSequenciaAcertos(String sequenciaAcertos) {
-        this.sequenciaAcertos = sequenciaAcertos;
+    public void setRespostas(String respostas) {
+        this.respostas = respostas;
     }
 
     public int getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
-        this.nota = nota;
+    public void incrementarNota(){
+        this.nota++;
     }
 
 }
