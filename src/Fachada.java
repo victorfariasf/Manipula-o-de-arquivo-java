@@ -129,6 +129,13 @@ public class Fachada {
                     escreverNoArquivo(nomeDoArquivo + "DECRESCENTE", x.toString());
                 }
 
+                escreverNoArquivo(nomeDoArquivo + "DECRESCENTE",
+                        String.format("%.1f", calcularMediaGeral(nomeDoArquivo + "DECRESCENTE"))
+                                + " essa é média geral da disciplina");
+                escreverNoArquivo(nomeDoArquivo + "ALFABETICA",
+                        String.format("%.1f", calcularMediaGeral(nomeDoArquivo + "ALFABETICA"))
+                                + " essa é média geral da disciplina");
+
                 System.out.println("ALUNOS POR ORDEM DE NOTAS DECRESCENTES");
                 leituraDosAlunos(nomeDoArquivo + "DECRESCENTE");
                 System.out.println("=================================");
@@ -177,10 +184,10 @@ public class Fachada {
         }
     }
 
-    public double calcularMediaGeral(String nomeDoArquivo){
+    public double calcularMediaGeral(String nomeDoArquivo) {
         double somaNotas = 0;
         double qntdAlunos = alunos.size();
-        try{
+        try {
             BufferedReader br = new BufferedReader(new FileReader("src/files/" + nomeDoArquivo + ".txt"));
             String linha = br.readLine();
             while (linha != null) {
@@ -189,9 +196,9 @@ public class Fachada {
                 linha = br.readLine();
             }
             br.close();
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
