@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -174,5 +175,26 @@ public class Fachada {
         } catch (IOException e) {
             System.out.println("ERRO: " + e.getMessage());
         }
+    }
+
+    public double calcularMediaGeral(String nomeDoArquivo){
+        double somaNotas = 0;
+        double qntdAlunos = alunos.size();
+        try{
+            BufferedReader br = new BufferedReader(new FileReader("src/files/" + nomeDoArquivo + ".txt"));
+            String linha = br.readLine();
+            while (linha != null) {
+                String dado[] = linha.split("\t");
+                somaNotas += Double.parseDouble(dado[2]);
+                linha = br.readLine();
+            }
+            br.close();
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        return somaNotas / qntdAlunos;
     }
 }
