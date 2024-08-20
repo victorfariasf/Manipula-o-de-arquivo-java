@@ -1,18 +1,48 @@
-## Getting Started
+# manipulacao-arquivo-java
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Tal repositório é dedicado para a segunda nota de NPC pela disciplina de Programação Orientada a Objetos (POO)
+pela Universidade Estadual do Ceará (UECE).
 
-## Folder Structure
+## Descrição
 
-The workspace contains two folders by default, where:
+Considere um arquivo texto onde cada linha representa as respostas de uma prova
+objetiva de um aluno. Essa prova contém 10 questões, todas do tipo V ou F. O final de
+cada linha contém o nome do aluno que respondeu aquelas opções separadas das
+respostas por um “tab”. A Figura abaixo mostra um exemplo desse arquivo:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+    VFFFVVVFVF BELTRANO DA SILVA
+    FFVFFFVVVF FULANO DOS ANZÓIS PEREIRA
+    VVFFFVFFVV CICRANO JOSÉ
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Crie um programa que faça os seguintes itens:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+1. Permita ao usuário criar o arquivo com as respostas de todos os alunos de uma
+disciplina. O nome do arquivo será o nome da disciplina. O usuário é livre para inserir
+quantos alunos ele queira. O usuário pode criar mais de uma disciplina.
 
-## Dependency Management
+2. Permita ao usuário gerar o resultado de uma disciplina. Seu programa deve permitir
+ao usuário escolher a disciplina e então informar a localização do arquivo contendo o
+gabarito oficial da prova (apenas uma linha com as 10 respostas corretas) da disciplina
+escolhida. Em seguida, deve produzir como resposta dois outros arquivos: um contendo
+a lista dos alunos e seus respectivos pontos (número de acertos) ordenadas por ordem
+alfabética, e outro contendo as mesmas informações, porém ordenado por ordem
+decrescente de notas (quantidade de acertos) e mostrando ao final a média da turma.
+Caso o aluno tenha marcado todas as questões com V ou F, o aluno receberá 0. Permita
+ao usuário visualizar esses dados na tela.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Fique livre para organizar seus arquivos em diretórios da melhor maneira possível.
+
+## TO-DO
+
+- Pesquisar sobre padrão de projeto Façade
+- Implementar Façade em distribuição de classes
+- Implementar menu interativo (criar disciplina, ler notas alunos, ler gabarito oficial, ver media disciplina, sair)
+- Inserir número correto de respostas
+
+- Tratamento de erro
+
+## Boas práticas de projeto (equipe)
+
+- Manter repositório sempre atualizado com um **git fetch** ou **git pull** pela última branch atualizada.
+- Trabalhar sempre em uma branch separada para cada funcionalidade do projeto.
+- Sempre que necessário, realizar uma discussão para saber oque manter ou não no projeto, evitando **conflitos de merge**.
