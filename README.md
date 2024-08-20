@@ -34,12 +34,9 @@ Fique livre para organizar seus arquivos em diretórios da melhor maneira possí
 
 ## TO-DO
 
-- Pesquisar sobre padrão de projeto Façade
-- Implementar Façade em distribuição de classes
-- Implementar menu interativo (criar disciplina, ler notas alunos, ler gabarito oficial, ver media disciplina, sair)
-- Inserir número correto de respostas
-
-- Tratamento de erro
+- Realizar pesquisa relacionada ao padrão Façade
+- Implementar menu personalizado em classe main
+- Implementar media geral em cada disciplina.
 
 ## Boas práticas de projeto (equipe)
 
