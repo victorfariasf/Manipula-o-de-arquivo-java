@@ -12,45 +12,58 @@ public class App {
 
         while (finalizarApp != true) {
             System.out.println("Insira o nome da disciplina");
-            String nomeDoArquivo = teclado.nextLine();
-            boolean existeArquivo = fachada.encontrarArquivo(nomeDoArquivo);
-
+            String nomeDaDisciplina = teclado.nextLine();
+            boolean existeArquivo = fachada.verificaExistenciaDeArquivo(nomeDaDisciplina);
             if (existeArquivo == false) {
-                System.out.println("Esse arquivo não foi encontrado!");
-
-                System.out.println("Deseja criar um novo arquivo?(S/N)");
-                opcaoString = teclado.nextLine();
-                if (opcaoString.equals("s") || opcaoString.equals("S")) {
-                    fachada.criarArquivo(nomeDoArquivo);
-                } else if (opcaoString.equals("n") || opcaoString.equals("N")) {
-                    finalizarApp = true;
-                } else {
-                    System.out.println("Opção inválida");
-                }
-
+                fachada.criacaoDeArquivo(nomeDaDisciplina);
             } else {
-                fachada.lerArquivo(nomeDoArquivo);
+                fachada.lerDisciplina(nomeDaDisciplina);
             }
-
-            System.out.println("Deseja encerrar o programa?(S/N)");
-            opcaoString = teclado.nextLine();
-            if (opcaoString.equals("s") || opcaoString.equals("S")) {
+            System.out.println("Deseja encerrar o programa?(s/n)");
+            String encerrarApp = teclado.nextLine();
+            if (encerrarApp.equals("s") || encerrarApp.equals("s".toUpperCase())) {
                 finalizarApp = true;
-            } else if (opcaoString.equals("n") || opcaoString.equals("N")) {
-                finalizarApp = false;
             } else {
-                System.out.println("Opção inválida");
+                finalizarApp = false;
             }
-
         }
+
+        /*
+         * while (finalizarApp != true) {
+         * System.out.println("Insira o nome da disciplina");
+         * String nomeDoArquivo = teclado.nextLine();
+         * boolean existeArquivo = fachada.encontrarArquivo(nomeDoArquivo);
+         * 
+         * if (existeArquivo == false) {
+         * System.out.println("Esse arquivo não foi encontrado!");
+         * 
+         * System.out.println("Deseja criar um novo arquivo?(S/N)");
+         * opcaoString = teclado.nextLine();
+         * if (opcaoString.equals("s") || opcaoString.equals("S")) {
+         * fachada.criarArquivo(nomeDoArquivo);
+         * } else if (opcaoString.equals("n") || opcaoString.equals("N")) {
+         * finalizarApp = true;
+         * } else {
+         * System.out.println("Opção inválida");
+         * }
+         * 
+         * } else {
+         * fachada.lerArquivo(nomeDoArquivo);
+         * }
+         * 
+         * System.out.println("Deseja encerrar o programa?(S/N)");
+         * opcaoString = teclado.nextLine();
+         * if (opcaoString.equals("s") || opcaoString.equals("S")) {
+         * finalizarApp = true;
+         * } else if (opcaoString.equals("n") || opcaoString.equals("N")) {
+         * finalizarApp = false;
+         * } else {
+         * System.out.println("Opção inválida");
+         * }
+         * 
+         * }
+         */
 
     }
 
-    public static boolean inputValido(String input) {
-        if (input != "S" || input != "s" || input != "N" || input != "n") {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
